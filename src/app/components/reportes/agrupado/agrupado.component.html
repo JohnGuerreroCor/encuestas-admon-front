@@ -1,0 +1,202 @@
+<app-navbar>
+  <div class="container mt-3 text-center" #target>
+    <div class="card rounded-2 p-0 shadow-sm mt-5 mb-5">
+      <div
+        class="card-header ml-4 mr-4 cursor-select"
+        [routerLink]="['/reportes']"
+        routerLinkActive="router-link-active"
+      >
+        <h4 class="font-usco-default">Reporte Agrupado Excel</h4>
+      </div>
+      <div class="card-body">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <fieldset class="scheduler-border shadow-sm">
+                <legend class="scheduler-border font-usco-vt">
+                  Seleccione el cuestionario y el tipo de respuesta
+                </legend>
+                <form [formGroup]="form">
+                  <div class="row text-center">
+                    <div class="col">
+                      <mat-form-field
+                        class="example-full-width"
+                        appearance="outline"
+                      >
+                        <mat-label
+                          >Titulo para el Archivo del Reporte</mat-label
+                        >
+                        <input
+                          matInput
+                          #message
+                          maxlength="100"
+                          formControlName="titulo"
+                          placeholder="Nombre del reporte"
+                        />
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row text-center">
+                    <div class="col">
+                      <mat-form-field
+                        class="example-full-width"
+                        appearance="outline"
+                      >
+                        <mat-label>Cuestionario</mat-label>
+                        <mat-select formControlName="cuestionario">
+                          <mat-option
+                            *ngFor="let cue of lstCuestionarios"
+                            [value]="cue.codigo"
+                          >
+                            {{ cue.nombre | capitalizeFirstLetter }}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row text-center">
+                    <div class="col">
+                      <mat-form-field
+                        class="example-full-width"
+                        appearance="outline"
+                      >
+                        <mat-label>Tipo de pregunta</mat-label>
+                        <mat-select
+                          formControlName="tipoPregunta"
+                          (selectionChange)="vista()"
+                        >
+                          <mat-option value="1">
+                            Prguntas textuales
+                          </mat-option>
+                          <mat-option value="2">
+                            Prguntas con selección múltiple
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <!-- (selectionChange)="obetenerTipoPreguntas()" -->
+                  <div class="row text-center">
+                    <div class="col">
+                      <button
+                        *ngIf="
+                          (lstReporteAgrupado | json) == '[]' && !validador
+                        "
+                        class="btn btn-usco-vt"
+                        (click)="obetenerTipoPreguntas()"
+                        [disabled]="!form.valid"
+                      >
+                        <i class="fa-solid fa-table-list"></i> Generar
+                      </button>
+                      <button
+                        *ngIf="(lstReporteAgrupado | json) != '[]'"
+                        class="btn btn-usco-vt"
+                        (click)="exportTableToExcel()"
+                        [disabled]="!form.valid"
+                      >
+                        <i class="fa-solid fa-file-csv"></i> Exportar Excel
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </fieldset>
+              <fieldset class="scheduler-border shadow-sm">
+                <legend class="scheduler-border font-usco-vt">
+                  Resultados obtenidos
+                </legend>
+                <div
+                  *ngIf="vistaPreviaResultados"
+                  class="row text-center"
+                  style="margin-top: 5%; opacity: 0.6"
+                >
+                  <div class="col" *ngIf="!validador">
+                    <img
+                      src="https://www.usco.edu.co/imagen-institucional/logo/universidad-surcolombiana-v.png"
+                      alt=""
+                    />
+                  </div>
+                  <div class="col" *ngIf="validador">
+                    <img
+                      *ngIf="gifActivate"
+                      [src]="gifUrlLoad"
+                      alt="Aseguramiento de la calidad"
+                    />
+                  </div>
+                </div>
+                <div
+                  *ngIf="vistaPreviaResultados"
+                  class="row text-center mt-3 mb-5"
+                >
+                  <div class="col" *ngIf="!validador">
+                    <h5 class="font-usco-default font-usco-gr">
+                      Espacio para la visualización de la información
+                    </h5>
+                  </div>
+                  <div class="col" *ngIf="validador">
+                    <h5 class="font-usco-default font-usco-gr">
+                      Estamos procesando la información
+                      <!-- <i class="fa-solid fa-spinner fa-spin"></i> -->
+                      <span
+                        class="spinner-border spinner-border-sm"
+                        role="status"
+                        aria-hidden="true"
+                      ></span>
+                    </h5>
+                  </div>
+                </div>
+                <div class="row mt-4">
+                  <div class="col">
+                    <div class="table-responsive">
+                      <table
+                        id="miTabla"
+                        *ngIf="lstReporteAgrupado.length > 0"
+                        class="table table-hover"
+                        style="font-size: 8px"
+                      >
+                        <thead class="table-dark">
+                          <tr *ngIf="this.form.get('tipoPregunta')!.value == 1">
+                            <th>Fecha Respuesta</th>
+                            <th>Estamento</th>
+                            <th
+                              *ngFor="
+                                let columna of lstPreguntasTextoDescripcion;
+                                let i = index
+                              "
+                            >
+                              {{ i + 1 }}).{{ columna }}
+                            </th>
+                          </tr>
+                          <tr *ngIf="this.form.get('tipoPregunta')!.value == 2">
+                            <th>Fecha Respuesta</th>
+                            <th>Estamento</th>
+                            <th
+                              *ngFor="
+                                let columna of lstPreguntasOpcionesDescripcion;
+                                let i = index
+                              "
+                            >
+                              {{ i + 1 }}).{{ columna }}
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let data of lstReporteAgrupado">
+                            <td>{{ data.fecha | date : "dd-MM-yyyy" }}</td>
+                            <td>{{ data.estamento }}</td>
+                            <td *ngFor="let columna of getColumnas()">
+                              {{ data.columnas[columna] }}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-navbar>

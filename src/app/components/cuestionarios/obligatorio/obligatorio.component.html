@@ -1,0 +1,213 @@
+<app-navbar>
+  <div class="container mt-3 text-center" #target>
+    <div class="card rounded-2 p-0 shadow-sm mt-5 mb-5">
+      <div
+        class="card-header ml-4 mr-4 cursor-select"
+        [routerLink]="['/cuestionarios']"
+        routerLinkActive="router-link-active"
+      >
+        <h4 class="font-usco-default">Parametrización encuesta obligatoria</h4>
+      </div>
+      <div class="card-body">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <fieldset class="scheduler-border shadow-sm">
+                <legend class="scheduler-border font-usco-vt">
+                  Módulo Matrícula Pregrado
+                </legend>
+                <div class="row">
+                  <div class="col">
+                    <form [formGroup]="formularioMatricula">
+                      <div class="row">
+                        <div class="col-sm-8">
+                          <mat-form-field
+                            class="example-full-width"
+                            appearance="outline"
+                          >
+                            <mat-label>Cuestionario</mat-label>
+                            <mat-select formControlName="encuesta1">
+                              <mat-option
+                                class="p-2"
+                                *ngFor="let cuestionario of lstCuestionarios"
+                                [value]="cuestionario.codigo"
+                              >
+                                {{ cuestionario.codigo }} -
+                                {{ cuestionario.nombre }}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </div>
+                        <div class="col-sm-2">
+                          <label class="switch mt-2">
+                            <input type="checkbox" formControlName="estado1" />
+                            <span class="slider"></span>
+                          </label>
+                        </div>
+                        <div class="col">
+                          <button
+                            class="btn btn-success mt-2"
+                            (click)="resgistrarParametrosMatriculaPregrado()"
+                          >
+                            <i class="far fa-save"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <fieldset class="scheduler-border shadow-sm">
+                <legend class="scheduler-border font-usco-vt">
+                  Módulo SGD
+                </legend>
+                <div class="row">
+                  <div class="col">
+                    <form [formGroup]="formularioSGD">
+                      <div class="row">
+                        <div class="col-sm-8">
+                          <mat-form-field
+                            class="example-full-width"
+                            appearance="outline"
+                          >
+                            <mat-label>Cuestionario</mat-label>
+                            <mat-select formControlName="encuesta2">
+                              <mat-option
+                                class="p-2"
+                                *ngFor="let cuestionario of lstCuestionarios"
+                                [value]="cuestionario.codigo"
+                              >
+                                {{ cuestionario.codigo }} -
+                                {{ cuestionario.nombre }}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </div>
+                        <div class="col-sm-2">
+                          <label class="switch mt-2">
+                            <input type="checkbox" formControlName="estado2" />
+                            <span class="slider"></span>
+                          </label>
+                        </div>
+                        <div class="col">
+                          <button
+                            class="btn btn-success mt-2"
+                            (click)="resgistrarParametrosSGD()"
+                          >
+                            <i class="far fa-save"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <fieldset class="scheduler-border shadow-sm">
+                <legend class="scheduler-border font-usco-vt">
+                  Módulo Notas Pregrado
+                </legend>
+                <div class="row">
+                  <div class="col">
+                    <form [formGroup]="formularioNotasPregrado">
+                      <div class="row">
+                        <div class="col-sm-8">
+                          <mat-form-field
+                            class="example-full-width"
+                            appearance="outline"
+                          >
+                            <mat-label>Cuestionario</mat-label>
+                            <mat-select formControlName="encuesta3">
+                              <mat-option
+                                class="p-2"
+                                *ngFor="let cuestionario of lstCuestionarios"
+                                [value]="cuestionario.codigo"
+                              >
+                                {{ cuestionario.codigo }} -
+                                {{ cuestionario.nombre }}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </div>
+                        <div class="col-sm-2">
+                          <label class="switch mt-2">
+                            <input type="checkbox" formControlName="estado3" />
+                            <span class="slider"></span>
+                          </label>
+                        </div>
+                        <div class="col">
+                          <button
+                            class="btn btn-success mt-2"
+                            (click)="resgistrarParametrosNotasPregrado()"
+                          >
+                            <i class="far fa-save"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <fieldset class="scheduler-border shadow-sm">
+                <legend class="scheduler-border font-usco-vt">
+                  Módulo Evaluación Docente
+                </legend>
+                <div class="row">
+                  <div class="col">
+                    <form [formGroup]="formularioEvaluacionDocente">
+                      <div class="row">
+                        <div class="col-sm-8">
+                          <mat-form-field
+                            class="example-full-width"
+                            appearance="outline"
+                          >
+                            <mat-label>Cuestionario</mat-label>
+                            <mat-select formControlName="encuesta4">
+                              <mat-option
+                                class="p-2"
+                                *ngFor="let cuestionario of lstCuestionarios"
+                                [value]="cuestionario.codigo"
+                              >
+                                {{ cuestionario.codigo }} -
+                                {{ cuestionario.nombre }}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </div>
+                        <div class="col-sm-2">
+                          <label class="switch mt-2">
+                            <input type="checkbox" formControlName="estado4" />
+                            <span class="slider"></span>
+                          </label>
+                        </div>
+                        <div class="col">
+                          <button
+                            class="btn btn-success mt-2"
+                            (click)="resgistrarParametrosEvaluacionDocente()"
+                          >
+                            <i class="far fa-save"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-navbar>
