@@ -22,13 +22,19 @@ import {
 } from './components/cuestionarios/cuestionario/cuestionario.component';
 import { ConfiguracionComponent } from './components/cuestionarios/configuracion/configuracion.component';
 import { PrevisualizacionComponent } from './components/cuestionarios/previsualizacion/previsualizacion.component';
-import { PreguntaComponent } from './components/preguntas/pregunta/pregunta.component';
+import {
+  PreguntaComponent,
+  ModalVistaPrevia,
+} from './components/preguntas/pregunta/pregunta.component';
 import { EscalaLikertComponent } from './components/preguntas/escala-likert/escala-likert.component';
 import { GrupoLikertComponent } from './components/preguntas/grupo-likert/grupo-likert.component';
 import { RespuestaComponent } from './components/respuestas/respuesta/respuesta.component';
 import { ResultadosComponent } from './components/reportes/resultados/resultados.component';
 import { DescargablesComponent } from './components/reportes/descargables/descargables.component';
-import { RelacionPreguntaRespuestaComponent } from './components/relacion-pregunta-respuesta/relacion-pregunta-respuesta.component';
+import {
+  ModalVistaPreviaRelacion,
+  RelacionPreguntaRespuestaComponent,
+} from './components/relacion-pregunta-respuesta/relacion-pregunta-respuesta.component';
 import { CapitalizeFirstLetterPipe } from './pipes/capitalize-first-letter.pipe';
 import { FiltrofacultadPipe } from './pipes/filtrofacultad.pipe';
 import { FiltronombreprogramaPipe } from './pipes/filtronombreprograma.pipe';
@@ -36,8 +42,7 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 import { FusionChartsModule } from 'angular-fusioncharts';
 
-import {NgxPrintModule} from 'ngx-print';
-
+import { NgxPrintModule } from 'ngx-print';
 
 // Load FusionCharts
 import * as FusionCharts from 'fusioncharts';
@@ -64,6 +69,8 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     ReportesComponent,
     CuestionarioComponent,
     ModalCuestionarioInformacion,
+    ModalVistaPrevia,
+    ModalVistaPreviaRelacion,
     ConfiguracionComponent,
     PrevisualizacionComponent,
     PreguntaComponent,
@@ -91,8 +98,12 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     FusionChartsModule,
     NgxPrintModule,
   ],
-  entryComponents: [ModalCuestionarioInformacion],
-  providers: [DatePipe, {provide: MAT_DATE_LOCALE, useValue: 'es-ES'}],
+  entryComponents: [
+    ModalCuestionarioInformacion,
+    ModalVistaPrevia,
+    ModalVistaPreviaRelacion,
+  ],
+  providers: [DatePipe, { provide: MAT_DATE_LOCALE, useValue: 'es-ES' }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

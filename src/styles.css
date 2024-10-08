@@ -239,7 +239,7 @@ legend.scheduler-border {
   position: relative;
   display: inline-block;
   cursor: pointer;
-  height: 2.5rem;
+  height: 3.5rem;
 }
 
 .file input {
@@ -254,10 +254,10 @@ legend.scheduler-border {
   top: 0;
   right: 0;
   left: 0;
-  z-index: 5;
-  height: 2.5rem;
+  z-index: 1;
+  height: 3.5rem;
   padding: 0.5rem 1rem;
-  line-height: 1.5;
+  line-height: 2.5;
   color: #555;
   background-color: #fff;
   border: 0.075rem solid #ddd;
@@ -277,9 +277,9 @@ legend.scheduler-border {
   z-index: 6;
   display: block;
   content: "Browse";
-  height: 2.5rem;
+  height: 3.5rem;
   padding: 0.5rem 1rem;
-  line-height: 1.5;
+  line-height: 2.5;
   color: #dfd4a6;
   content: "Seleccionar";
   background-color: #8f141b;

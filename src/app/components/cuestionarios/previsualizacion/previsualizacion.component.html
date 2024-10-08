@@ -31,7 +31,8 @@
                   >
                     <mat-label>Cuestionarios</mat-label>
                     <mat-select formControlName="codigo">
-                      <mat-option class="p-2"
+                      <mat-option
+                        class="p-2"
                         *ngFor="let cu of lstCuestionarios"
                         [value]="cu.codigo"
                       >
@@ -113,13 +114,30 @@
                     <div class="col pl-5 pr-5 pt-4 pb-3">
                       <div class="form-group text-left">
                         <small
+                          *ngIf="!esSoloNumeros(p.descripcion)"
                           style="font-size: 16px"
                           class="font-usco-gr font-usco-default font-weight-bold"
-                          >{{ i + 1 }}). {{ p.descripcion
+                          >{{ p.identificador }}{{ p.descripcion
                           }}<b style="color: red" *ngIf="p.obligatorio == 1"
                             >*</b
                           ></small
-                        ><br />
+                        >
+                        <small
+                          style="font-size: 16px"
+                          class="font-usco-gr font-usco-default font-weight-bold"
+                          *ngIf="esSoloNumeros(p.descripcion)"
+                          >{{ p.identificador
+                          }}<b style="color: red" *ngIf="p.obligatorio == 1"
+                            >*</b
+                          ></small
+                        >
+                        <img
+                          *ngIf="esSoloNumeros(p.descripcion)"
+                          src="{{ fotos[i] }}"
+                          class="img-thumbnail p-4 m-4"
+                          style="width: 60%"
+                        />
+                        <br />
                         <mat-form-field
                           class="example-full-width"
                           appearance="outline"
@@ -143,14 +161,30 @@
                     *ngIf="p.tipoRespuesta.codigo == 1"
                   >
                     <div class="col pl-5 pr-5 pt-4 pb-3 text-left">
-                      <label
-                        id="example-radio-group-label"
-                        class="font-usco-default font-usco-gr font-weight-bold"
-                        >{{ i + 1 }}). {{ p.descripcion
+                      <small
+                        *ngIf="!esSoloNumeros(p.descripcion)"
+                        style="font-size: 16px"
+                        class="font-usco-gr font-usco-default font-weight-bold"
+                        >{{ p.identificador }}{{ p.descripcion
                         }}<b style="color: red" *ngIf="p.obligatorio == 1"
                           >*</b
-                        ></label
-                      ><br />
+                        ></small
+                      >
+                      <small
+                        style="font-size: 16px"
+                        class="font-usco-gr font-usco-default font-weight-bold"
+                        *ngIf="esSoloNumeros(p.descripcion)"
+                        >{{ p.identificador
+                        }}<b style="color: red" *ngIf="p.obligatorio == 1"
+                          >*</b
+                        ></small
+                      >
+                      <img
+                        *ngIf="esSoloNumeros(p.descripcion)"
+                        src="{{ fotos[i] }}"
+                        class="img-thumbnail p-4 m-4"
+                        style="width: 60%"
+                      /><br />
                       <mat-radio-group
                         aria-labelledby="example-radio-group-label"
                         class="example-radio-group"
@@ -182,13 +216,29 @@
                     <div class="col pl-5 pr-5 pt-4 pb-3">
                       <div class="form-group text-left">
                         <small
-                          class="font-usco-gr font-usco-default font-weight-bold"
+                          *ngIf="!esSoloNumeros(p.descripcion)"
                           style="font-size: 16px"
-                          >{{ i + 1 }}). {{ p.descripcion
+                          class="font-usco-gr font-usco-default font-weight-bold"
+                          >{{ p.identificador }}{{ p.descripcion
                           }}<b style="color: red" *ngIf="p.obligatorio == 1"
                             >*</b
                           ></small
-                        ><br />
+                        >
+                        <small
+                          style="font-size: 16px"
+                          class="font-usco-gr font-usco-default font-weight-bold"
+                          *ngIf="esSoloNumeros(p.descripcion)"
+                          >{{ p.identificador
+                          }}<b style="color: red" *ngIf="p.obligatorio == 1"
+                            >*</b
+                          ></small
+                        >
+                        <img
+                          *ngIf="esSoloNumeros(p.descripcion)"
+                          src="{{ fotos[i] }}"
+                          class="img-thumbnail p-4 m-4"
+                          style="width: 60%"
+                        /><br />
                         <mat-form-field
                           class="example-full-width"
                           appearance="outline"
@@ -211,7 +261,7 @@
                 <div *ngIf="p.tipo == 2" id="table">
                   <table id="customers">
                     <tr>
-                      <th>{{ i + 1 }}). {{ p.descripcion }}</th>
+                      <th>{{ p.identificador }} {{ p.descripcion }}</th>
                       <th *ngFor="let e of lstEscala[p.codigo]">
                         {{ e.nombre }}
                       </th>

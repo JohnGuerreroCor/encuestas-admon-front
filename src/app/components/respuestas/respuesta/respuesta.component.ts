@@ -97,6 +97,7 @@ export class RespuestaComponent implements OnInit {
     let rop: RespuestaOpciones = new RespuestaOpciones();
     rop.descripcion = this.form.get('descripcion')!.value;
     rop.codigo = this.form.get('codigo')!.value;
+    rop.uaa = this.auth.user.uaaCodigo;
 
     if (!this.editar) {
       this.resgistrar(rop);

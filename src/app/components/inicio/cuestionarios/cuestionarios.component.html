@@ -1,93 +1,20 @@
 <app-navbar>
   <div class="container p-5">
-    <div class="row row-cols-1 row-cols-md-4">
-      <div class="col mb-4">
+    <div class="row row-cols-1 row-cols-md-3">
+      <div class="col mb-4" *ngFor="let link of links">
         <div
           class="card h-100 cursor-select card-usco-menu shadow"
-          [routerLink]="['/cuestionario']"
+          [routerLink]="link.ruta"
           #tooltip="matTooltip"
-          matTooltip="Creación de cuestionario, con sus respectivas fechas de inicio
-          y cierre."
+          [matTooltip]="link.info"
           matTooltipPosition="below"
         >
           <h5
             class="card-header pt-3 text-center font-usco-vt font-weight-bold"
           >
-            Crear cuestionario
+            {{ link.titulo }}
           </h5>
-          <img src="assets/circle-plus-solid.png" class="card-img-top p-4" />
-        </div>
-      </div>
-      <div
-        class="col mb-4"
-        *ngIf="this.role[0] == 'ROLE_ENCUESTAS_SUPER_ADMINISTRADOR'"
-      >
-        <div
-          class="card h-100 cursor-select card-usco-menu shadow"
-          [routerLink]="['/obligatorio']"
-          #tooltip="matTooltip"
-          matTooltip="Creación de cuestionario, con sus respectivas fechas de inicio
-          y cierre."
-          matTooltipPosition="below"
-        >
-          <h5
-            class="card-header pt-3 text-center font-usco-vt font-weight-bold"
-          >
-            Obligatoriedad
-          </h5>
-          <img
-            src="assets/circle-exclamation-solid.png"
-            class="card-img-top p-4"
-          />
-        </div>
-      </div>
-      <div class="col mb-4">
-        <div
-          class="card h-100 cursor-select card-usco-menu shadow"
-          [routerLink]="['/configuracion']"
-          #tooltip="matTooltip"
-          matTooltip="Permite establecer qué usuarios pueden responder al
-          cuestionario."
-          matTooltipPosition="below"
-        >
-          <h5
-            class="card-header pt-3 text-center font-usco-vt font-weight-bold"
-          >
-            Configurar acceso
-          </h5>
-          <img src="assets/sliders-solid.png" class="card-img-top p-4" />
-        </div>
-      </div>
-      <div class="col mb-4">
-        <div
-          class="card h-100 cursor-select card-usco-menu shadow"
-          [routerLink]="['/previsualizacion']"
-          #tooltip="matTooltip"
-          matTooltip="Permite visualizar los cuestionarios ya creados."
-          matTooltipPosition="below"
-        >
-          <h5
-            class="card-header pt-3 text-center font-usco-vt font-weight-bold"
-          >
-            Previsualizar cuestionario
-          </h5>
-          <img src="assets/eye-solid.png" class="card-img-top p-4" />
-        </div>
-      </div>
-      <div class="col mb-4">
-        <div
-          class="card h-100 cursor-select card-usco-menu shadow"
-          [routerLink]="['/inicio']"
-          #tooltip="matTooltip"
-          matTooltip="Volver al menú anterior."
-          matTooltipPosition="below"
-        >
-          <h5
-            class="card-header pt-3 text-center font-usco-vt font-weight-bold"
-          >
-            Inicio
-          </h5>
-          <img src="assets/house-solid.png" class="card-img-top p-4" />
+          <i class="{{ link.icono }}"></i>
         </div>
       </div>
     </div>

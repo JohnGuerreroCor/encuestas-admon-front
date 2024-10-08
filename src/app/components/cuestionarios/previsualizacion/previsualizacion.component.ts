@@ -1,3 +1,4 @@
+import { CargarImagenPreguntaService } from './../../../services/cargar-imagen-pregunta.service';
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
@@ -38,6 +39,10 @@ export class PrevisualizacionComponent implements OnInit {
   lstSubPreguntas: Array<Pregunta[]> = new Array();
   lstConfig!: CuestionarioConfiguracion[];
   validador: boolean = false;
+  foto = {
+    url: '',
+  };
+  fotos: string[] = [];
 
   constructor(
     private cuestionarioService: CuestionarioService,
@@ -47,7 +52,8 @@ export class PrevisualizacionComponent implements OnInit {
     private cuaService: CuestionarioConfiguracionService,
     private prService: PreguntaRespuestaService,
     private auth: AuthService,
-    private router: Router
+    private router: Router,
+    private cargarImagenPreguntaService: CargarImagenPreguntaService
   ) {}
 
   ngOnInit() {
@@ -70,6 +76,21 @@ export class PrevisualizacionComponent implements OnInit {
   private initForm(): void {
     this.form = this.fb.group({
       codigo: new FormControl('', Validators.required),
+    });
+  }
+
+  esSoloNumeros(descripcion: string): boolean {
+    return /^\d+$/.test(descripcion);
+  }
+
+  obtenerImagen(item: number, index: number) {
+    this.cargarImagenPreguntaService.mirarSoporte(item).subscribe((data) => {
+      var blob = new Blob([data], { type: 'image/png' });
+      const reader = new FileReader();
+      reader.readAsDataURL(blob);
+      reader.onload = () => {
+        this.fotos[index] = reader.result as string;
+      };
     });
   }
 
@@ -133,7 +154,12 @@ export class PrevisualizacionComponent implements OnInit {
     this.preguntaService.findbyCues(this.form.get('codigo')!.value).subscribe(
       (data) => {
         this.lstPreguntass = data;
+        let i = 0;
         for (const e of data) {
+          if (this.esSoloNumeros(e.descripcion)) {
+            this.obtenerImagen(+e.descripcion, i); // Pasamos el índice para asignar la foto
+          }
+          i = i + 1;
           if (e.tipo == 2) {
             this.preguntaService
               .findbyDependencia(e.codigo)

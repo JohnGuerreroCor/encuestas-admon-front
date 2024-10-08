@@ -1,4 +1,7 @@
 <app-navbar>
+  <button class="btn btn-flotante-usco" *ngIf="flag" (click)="openDialog()">
+    <i class="fa-solid fa-eye"></i> Viste previa
+  </button>
   <div class="container mt-3 text-center" #target>
     <div class="card rounded-2 p-0 shadow-sm mt-5 mb-5">
       <div
@@ -70,7 +73,12 @@
                         (click)="ontre()"
                         [value]="pre.codigo"
                       >
-                        {{ pre.descripcion }}
+                        <span *ngIf="!esSoloNumeros(pre.descripcion)">{{
+                          pre.descripcion
+                        }}</span>
+                        <span *ngIf="esSoloNumeros(pre.descripcion)"
+                          >Imágen ({{ pre.textoAdicional }})
+                        </span>
                       </mat-option>
                     </mat-select>
                   </mat-form-field>
@@ -209,10 +217,16 @@
                     </td>
                   </ng-container>
 
-                  <ng-container matColumnDef="descripcion">
-                    <th mat-header-cell *matHeaderCellDef>Descripcion</th>
+                  <ng-container matColumnDef="pre">
+                    <th mat-header-cell *matHeaderCellDef>Pregunta</th>
                     <td mat-cell *matCellDef="let element">
-                      {{ element.descripcionAdicional }}
+                      <span
+                        *ngIf="!esSoloNumeros(element.pregunta.descripcion)"
+                        >{{ element.descripcionAdicional }}</span
+                      >
+                      <span *ngIf="esSoloNumeros(element.pregunta.descripcion)"
+                        >Imágen ({{ element.pregunta.textoAdicional }})
+                      </span>
                     </td>
                   </ng-container>
 
@@ -222,13 +236,6 @@
                     </th>
                     <td mat-cell *matCellDef="let element">
                       {{ element.respuestaOpciones.descripcion }}
-                    </td>
-                  </ng-container>
-
-                  <ng-container matColumnDef="pre">
-                    <th mat-header-cell *matHeaderCellDef>Pregunta</th>
-                    <td mat-cell *matCellDef="let element">
-                      {{ element.pregunta.descripcion }}
                     </td>
                   </ng-container>
 

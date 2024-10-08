@@ -19,3 +19,234 @@
   color: #fff;
   height: 65px !important;
 }
+
+/* From Uiverse.io by gharsh11032000 */
+.radio-buttons-container {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.radio-button {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+
+.radio-button__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.radio-button__label {
+  display: inline-block;
+  padding-left: 30px;
+  margin-bottom: 10px;
+  position: relative;
+  font-size: 18px;
+  color: black;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.radio-button__custom {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #555;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.radio-button__input:checked + .radio-button__label .radio-button__custom {
+  transform: translateY(-50%) scale(0.9);
+  border: 5px solid #8f141b;
+  color: #8f141b;
+}
+
+.radio-button__input:checked + .radio-button__label {
+  color: black;
+}
+
+.radio-button__label:hover .radio-button__custom {
+  transform: translateY(-50%) scale(1.2);
+  border-color: #8f141b;
+  box-shadow: 0 0 10px #8f141b;
+}
+
+.example-full-width {
+  width: 60%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+  align-items: flex-start;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+
+.card {
+  width: 90%;
+  display: inline-block !important;
+  position: relative !important;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 14%) !important;
+  border-radius: 10px !important;
+  color: rgba(0, 0, 0, 0.87);
+  background: #fff;
+  padding-top: 0px !important;
+}
+
+.card-header {
+  box-shadow: 0 5px 20px -12px rgb(0 0 0 / 42%), 0 4px 25px 0px rgb(0 0 0 / 12%),
+    0 8px 10px -5px rgb(0 0 0 / 20%);
+  border-radius: 10px;
+  padding: 15px;
+  background-color: #4d626c;
+  margin-top: -25px !important;
+  color: #fff;
+  height: 65px !important;
+}
+
+.dashed {
+  border-bottom: dashed 1px #4d626c;
+}
+
+:host
+  ::ng-deep
+  .mat-slide-toggle.mat-checked:not(.mat-disabled)
+  .mat-slide-toggle-bar {
+  background-color: #b15b60;
+}
+
+:host
+  ::ng-deep
+  .mat-slide-toggle.mat-checked:not(.mat-disabled)
+  .mat-slide-toggle-thumb {
+  background-color: #8f141b;
+}
+
+.foto-usco {
+  border: solid 5px white;
+  border-radius: 5px;
+}
+
+.no-border {
+  border: none;
+}
+
+.font-small-usco {
+  font-size: 11px;
+}
+
+.prev-header-encuesta-usco {
+  border: solid 1px #dadce0;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.precarga-img-usco {
+  margin-top: 5%;
+  opacity: 0.6;
+}
+
+#carnet-usco-rotulo-front {
+  background-image: linear-gradient(
+    to bottom,
+    #8f141b 0,
+    #8f141b 5%,
+    #ffffff 5%,
+    #ffffff 100%
+  );
+}
+
+.border-round-usco {
+  border-radius: 10px 10px 10px 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* From Uiverse.io by gharsh11032000 */ 
+/* The switch - the box around the slider */
+.switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 3.5em;
+  height: 2em;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: #E3C5C6;
+  border-radius: 50px;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.4em;
+  width: 1.4em;
+  left: 0.3em;
+  bottom: 0.3em;
+  background-color: white;
+  border-radius: 50px;
+  box-shadow: 0 0px 20px rgba(0,0,0,0.4);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.switch input:checked + .slider {
+  background: #8F141B;
+}
+
+.switch input:focus + .slider {
+  box-shadow: 0 0 1px #5C0E12;
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(1.6em);
+  width: 2em;
+  height: 2em;
+  bottom: 0;
+}
