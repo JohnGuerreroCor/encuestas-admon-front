@@ -58,6 +58,7 @@ export class PreguntaComponent implements OnInit {
   foto = {
     url: '',
   };
+  selectedOption: string = 'texto';
 
   //Tabla
 
@@ -200,10 +201,12 @@ export class PreguntaComponent implements OnInit {
     this.form.get('codigo')!.setValue(element.codigo);
     this.form.get('descripcion')!.setValue(element.descripcion);
     if (this.esSoloNumeros(element.descripcion)) {
-      this.tipoPregunta = false;
+      this.selectedOption = 'imagen';
+      this.onRadioChange(this.selectedOption);
       this.obtenerImagen(+element.descripcion);
     } else {
-      this.tipoPregunta = true;
+      this.selectedOption = 'texto';
+      this.onRadioChange(this.selectedOption);
     }
     this.form.get('texto')!.setValue(element.textoAdicional);
     this.form.get('trespuesta')!.setValue(element.tipoRespuesta.codigo);
@@ -346,7 +349,8 @@ export class PreguntaComponent implements OnInit {
     this.editar = false;
     this.depende = false;
     this.foto.url = '';
-    this.tipoPregunta = true;
+    this.selectedOption = 'texto';
+    this.onRadioChange(this.selectedOption);
     this.form.get('depende')!.clearValidators();
     this.form.get('depende')!.updateValueAndValidity();
     this.form.get('grup')!.clearValidators();
@@ -396,7 +400,7 @@ export class PreguntaComponent implements OnInit {
         (data) => {
           this.mensajeSuccses();
           this.foto.url = '';
-          this.tipoPregunta = false;
+          this.onRadioChange('texto');
           this.find();
         },
         (err) => this.fError(err)

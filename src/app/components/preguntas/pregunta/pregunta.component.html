@@ -76,8 +76,9 @@
                       id="radio1"
                       class="radio-button__input"
                       type="radio"
-                      (change)="onRadioChange('texto')"
-                      checked
+                      [(ngModel)]="selectedOption"
+                      [value]="'texto'"
+                      (ngModelChange)="onRadioChange($event)"
                     />
                     <label for="radio1" class="radio-button__label">
                       <span class="radio-button__custom"></span>
@@ -90,7 +91,9 @@
                       id="radio2"
                       class="radio-button__input"
                       type="radio"
-                      (change)="onRadioChange('imagen')"
+                      [(ngModel)]="selectedOption"
+                      [value]="'imagen'"
+                      (ngModelChange)="onRadioChange($event)"
                     />
                     <label for="radio2" class="radio-button__label">
                       <span class="radio-button__custom"></span>

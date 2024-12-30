@@ -222,7 +222,7 @@
                     <td mat-cell *matCellDef="let element">
                       <span
                         *ngIf="!esSoloNumeros(element.pregunta.descripcion)"
-                        >{{ element.descripcionAdicional }}</span
+                        >{{ element.pregunta.descripcion }}</span
                       >
                       <span *ngIf="esSoloNumeros(element.pregunta.descripcion)"
                         >Imágen ({{ element.pregunta.textoAdicional }})
