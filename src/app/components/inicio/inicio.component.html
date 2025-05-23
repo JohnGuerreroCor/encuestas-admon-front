@@ -1,20 +1,34 @@
 <app-navbar>
-  <div class="container p-5">
-    <div class="row row-cols-1 row-cols-md-3">
+  <div class="container mt-4 p-5">
+    <div class="row row-cols-1 row-cols-md-2">
       <div class="col mb-4" *ngFor="let link of links">
         <div
-          class="card h-100 cursor-select card-usco-menu shadow"
+          class="card cursor-select card-usco-menu shadow rounded-2 p-0 shadow-sm mt-2 mb-3"
+          style="max-width: 540px"
           [routerLink]="link.ruta"
-          #tooltip="matTooltip"
-          [matTooltip]="link.info"
-          matTooltipPosition="below"
         >
-          <h5
-            class="card-header pt-3 text-center font-usco-vt font-weight-bold"
-          >
-            {{ link.titulo }}
-          </h5>
-          <i class="{{ link.icono }}"></i>
+          <div class="card-header font-usco-vt ml-4 mr-4 text-center">
+            <h5 class="font-weight-bold">{{ link.titulo }}</h5>
+          </div>
+          <div class="row no-gutters">
+            <div class="col-md-4 pl-4 text-center">
+              <i class="{{ link.icono }}"></i>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body mt-0 pt-1">
+                <small class="card-text">
+                  {{ link.info }}
+                </small>
+                <p class="card-text text-right">
+                  <small class="text-muted"
+                    ><i class="fa-solid fa-chevron-right fa-1x"></i
+                    ><i class="fa-solid fa-chevron-right fa-1x"></i
+                    ><i class="fa-solid fa-chevron-right fa-1x"></i
+                  ></small>
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

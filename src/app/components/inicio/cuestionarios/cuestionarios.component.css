@@ -1,11 +1,34 @@
-.card-usco-menu {
-  filter: brightness(100%);
+.card {
+  display: inline-block !important;
+  position: relative !important;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 14%) !important;
+  border-radius: 10px !important;
+  color: rgba(0, 0, 0, 0.87);
+  background: #fff;
+  padding-top: 0px !important;
 }
 
-.card-usco-menu:hover {
-  filter: brightness(90%);
+.card-header {
+  box-shadow: 0 5px 20px -12px rgb(0 0 0 / 42%), 0 4px 25px 0px rgb(0 0 0 / 12%),
+    0 8px 10px -5px rgb(0 0 0 / 20%);
+  border-radius: 10px;
+  padding: 15px;
+  background-color: #4d626c;
+  margin-top: -25px !important;
+  margin-bottom: 25px;
+  color: #fff;
+  height: 65px !important;
 }
 
-.color-icon {
-  color: #4d626c;
+.card-usco-menu:hover .card-header {
+  background-color: #8f141b; /* Cambia esto al color que desees */
+  color: #dfd4a6; /* Color del texto */
+}
+
+.card-usco-menu i {
+  color: #4d626c; /* Cambia esto al color que desees */
+}
+
+.card-usco-menu:hover i {
+  color: #8f141b; /* Cambia esto al color que desees */
 }

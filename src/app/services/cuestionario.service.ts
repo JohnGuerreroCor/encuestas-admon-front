@@ -4,6 +4,7 @@ import { AuthService } from './auth.service';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import { Cuestionario } from '../models/cuestionario';
+import { CuestionarioTabulado } from '../models/cuestionario-tabulado';
 
 @Injectable({
   providedIn: 'root',
@@ -39,6 +40,15 @@ export class CuestionarioService {
     }
   }
 
+  cuestionarioTabulado(): Observable<CuestionarioTabulado[]> {
+    return this.http.get<CuestionarioTabulado[]>(
+      `${this.url}/cuestionario-tabulado/${this.uaa}`,
+      {
+        headers: this.aggAutorizacionHeader(),
+      }
+    );
+  }
+
   findbyCodigo(codigo: number): Observable<Cuestionario> {
     return this.http.get<Cuestionario>(
       `${this.url}/buscar-cuestionario-codigo/${codigo}`,
@@ -67,6 +77,13 @@ export class CuestionarioService {
   delete(codigo: number): Observable<number> {
     return this.http.get<number>(
       `${this.url}/borrar/${codigo}/${this.userLogeado}`,
+      { headers: this.aggAutorizacionHeader() }
+    );
+  }
+
+  restaurarCuestionario(cuestionarioCodigo: number): Observable<number> {
+    return this.http.get<number>(
+      `${this.url}/restaurar-cuestionario/${cuestionarioCodigo}/${this.userLogeado}`,
       { headers: this.aggAutorizacionHeader() }
     );
   }

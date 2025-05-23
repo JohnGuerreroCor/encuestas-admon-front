@@ -20,6 +20,8 @@ import { AgrupadoComponent } from './components/reportes/agrupado/agrupado.compo
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { AuthGuard } from './guard/auth.guard';
 import { ObligatorioComponent } from './components/cuestionarios/obligatorio/obligatorio.component';
+import { RestaurarComponent } from './components/cuestionarios/restaurar/restaurar.component';
+import { HistoricoComponent } from './components/reportes/historico/historico.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
@@ -29,75 +31,71 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'token', component: TokenComponent },
 
-  { path: 'inicio', component: InicioComponent, canActivate: [AuthGuard] },
+  { path: 'inicio', component: InicioComponent },
 
   {
     path: 'cuestionarios',
     component: CuestionariosComponent,
-    canActivate: [AuthGuard],
+  },
+  {
+    path: 'restaurar',
+    component: RestaurarComponent,
   },
   {
     path: 'obligatorio',
     component: ObligatorioComponent,
-    canActivate: [AuthGuard],
   },
   {
     path: 'cuestionario',
     component: CuestionarioComponent,
-    canActivate: [AuthGuard],
   },
   {
     path: 'configuracion',
     component: ConfiguracionComponent,
-    canActivate: [AuthGuard],
   },
   {
     path: 'previsualizacion',
     component: PrevisualizacionComponent,
-    canActivate: [AuthGuard],
   },
 
   {
     path: 'preguntas',
     component: PreguntasComponent,
-    canActivate: [AuthGuard],
   },
-  { path: 'pregunta', component: PreguntaComponent, canActivate: [AuthGuard] },
+  { path: 'pregunta', component: PreguntaComponent },
   {
     path: 'escala-likert',
     component: EscalaLikertComponent,
-    canActivate: [AuthGuard],
   },
   {
     path: 'grupo-likert',
     component: GrupoLikertComponent,
-    canActivate: [AuthGuard],
   },
 
   {
     path: 'respuesta',
     component: RespuestaComponent,
-    canActivate: [AuthGuard],
   },
 
   {
     path: 'relacion-pregunta-respuesta',
     component: RelacionPreguntaRespuestaComponent,
-    canActivate: [AuthGuard],
   },
 
-  { path: 'reportes', component: ReportesComponent, canActivate: [AuthGuard] },
+  { path: 'reportes', component: ReportesComponent },
   {
     path: 'resultados',
     component: ResultadosComponent,
-    canActivate: [AuthGuard],
+  },
+  {
+    path: 'historico',
+    component: HistoricoComponent,
   },
   {
     path: 'descargables',
     component: DescargablesComponent,
-    canActivate: [AuthGuard],
   },
-  { path: 'agrupados', component: AgrupadoComponent, canActivate: [AuthGuard] },
+  { path: 'agrupados', component: AgrupadoComponent },
 
   { path: '**', redirectTo: 'acceso-denegado' },
 ];

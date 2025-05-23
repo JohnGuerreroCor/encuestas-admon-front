@@ -53,6 +53,8 @@ import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 import { AgrupadoComponent } from './components/reportes/agrupado/agrupado.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { ObligatorioComponent } from './components/cuestionarios/obligatorio/obligatorio.component';
+import { RestaurarComponent } from './components/cuestionarios/restaurar/restaurar.component';
+import { HistoricoComponent } from './components/reportes/historico/historico.component';
 
 // Add dependencies to FusionChartsModule
 FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
@@ -86,6 +88,8 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     AgrupadoComponent,
     NotfoundComponent,
     ObligatorioComponent,
+    RestaurarComponent,
+    HistoricoComponent,
   ],
   imports: [
     BrowserModule,

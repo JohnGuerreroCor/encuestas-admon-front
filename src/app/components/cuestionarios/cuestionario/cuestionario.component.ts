@@ -147,7 +147,7 @@ export class CuestionarioComponent implements OnInit {
   onEditarClick(element: Cuestionario) {
     this.editar = true;
     this.form.get('codigo')!.setValue(element.codigo);
-    this.form.get('nombre')!.setValue(element.nombre);
+    this.form.get('nombre')!.setValue(element.nombre.trim());
     this.form.get('instrucciones')!.setValue(element.instrucciones);
     let fechaInicio = new Date(element.inicio + ' 0:00:00');
     this.form.get('fechaInicio')!.setValue(fechaInicio);

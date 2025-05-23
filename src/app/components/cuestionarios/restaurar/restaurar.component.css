@@ -1,4 +1,5 @@
 .card {
+  width: 90%;
   display: inline-block !important;
   position: relative !important;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 14%) !important;
@@ -15,20 +16,6 @@
   padding: 15px;
   background-color: #4d626c;
   margin-top: -25px !important;
-  margin-bottom: 25px;
   color: #fff;
   height: 65px !important;
-}
-
-.card-usco-menu:hover .card-header {
-  background-color: #8f141b; /* Cambia esto al color que desees */
-  color: #dfd4a6; /* Color del texto */
-}
-
-.card-usco-menu i {
-  color: #4d626c; /* Cambia esto al color que desees */
-}
-
-.card-usco-menu:hover i {
-  color: #8f141b; /* Cambia esto al color que desees */
 }

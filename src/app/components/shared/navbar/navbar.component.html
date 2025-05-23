@@ -52,6 +52,17 @@
             </h6>
           </a>
           <a
+            class="pl-5 sidenav-accordion"
+            mat-list-item
+            style="width: 300px"
+            [routerLink]="['/restaurar']"
+            routerLinkActive="router-link-active"
+          >
+            <h6 class="text-white">
+              <i class="fa-solid fa-eraser"></i> Restaurar
+            </h6>
+          </a>
+          <a
             *ngIf="this.role[0] == 'ROLE_ENCUESTAS_SUPER_ADMINISTRADOR'"
             class="pl-5 sidenav-accordion"
             mat-list-item
@@ -189,18 +200,7 @@
             routerLinkActive="router-link-active"
           >
             <h6 class="text-white">
-              <i class="fa-solid fa-chart-pie"></i> Resultados
-            </h6>
-          </a>
-          <a
-            class="pl-5 sidenav-accordion"
-            mat-list-item
-            style="width: 300px"
-            [routerLink]="['/descargables']"
-            routerLinkActive="router-link-active"
-          >
-            <h6 class="text-white">
-              <i class="fa-solid fa-file-csv"></i> Excel General
+              <i class="fa-solid fa-chart-pie"></i> Gráficos
             </h6>
           </a>
           <a
@@ -212,6 +212,17 @@
           >
             <h6 class="text-white">
               <i class="fa-solid fa-list-check"></i> Excel Agrupado
+            </h6>
+          </a>
+          <a
+            class="pl-5 sidenav-accordion"
+            mat-list-item
+            style="width: 300px"
+            [routerLink]="['/historico']"
+            routerLinkActive="router-link-active"
+          >
+            <h6 class="text-white">
+              <i class="fa-solid fa-chart-gantt"></i> Histórico
             </h6>
           </a>
         </mat-nav-list>

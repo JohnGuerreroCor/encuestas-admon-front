@@ -10,27 +10,26 @@ export class PreguntasComponent {
     {
       titulo: 'Crear pregunta',
       ruta: '/pregunta',
-      icono:
-        'fa-solid fa-circle-plus fa-8x p-4 text-center color-icon color-icon',
-      info: 'Permite parametrizar cada una de las preguntas según su tipo (selección multiple o texto).',
+      icono: 'fa-solid fa-circle-plus fa-6x text-center color-icon color-icon',
+      info: 'Facilita la configuración de cada pregunta según su tipo, permitiendo opciones como selección múltiple o respuesta en texto.',
     },
     {
       titulo: 'Crear grupo',
       ruta: '/grupo-likert',
-      icono: 'fa-solid fa-object-ungroup fa-8x p-4 text-center color-icon',
-      info: 'Parametriza el conjunto de preguntas y las agrupa por un criterio específico.',
+      icono: 'fa-solid fa-object-ungroup fa-6x text-center color-icon',
+      info: 'Organiza y configura el conjunto de preguntas, permitiendo agruparlas según un criterio específico .',
     },
     {
       titulo: 'Escala likert',
       ruta: '/escala-likert',
-      icono: 'fa-solid fa-sitemap fa-8x p-4 text-center color-icon',
-      info: 'Permite establecer qué usuarios pueden responder al cuestionario.',
+      icono: 'fa-solid fa-sitemap fa-6x text-center color-icon',
+      info: 'Permite crear encuestas con escala Likert, facilitando la evaluación de opiniones mediante distintos niveles.',
     },
     {
       titulo: 'Inicio',
       ruta: '/inicio',
-      icono: 'fa-solid fa-house fa-8x p-4 text-center color-icon',
-      info: 'Volver al menú anterior.',
+      icono: 'fa-solid fa-house fa-6x text-center color-icon',
+      info: 'Permite regresar al menú anterior para facilitar la navegación entre opciones, asegurando una experiencia fluida.',
     },
   ];
 }

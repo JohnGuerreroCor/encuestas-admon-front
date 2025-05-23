@@ -16,33 +16,38 @@ export class CuestionariosComponent {
           titulo: 'Crear cuestionario',
           ruta: '/cuestionario',
           icono:
-            'fa-solid fa-circle-plus fa-8x p-4 text-center color-icon color-icon',
-          info: 'Creación de cuestionario, con sus respectivas fechas de inicio y cierre.',
+            'fa-solid fa-circle-plus fa-6x text-center color-icon color-icon',
+          info: 'La creación de un cuestionario incluye título, instrucciones, fechas de inicio y cierre y restricciones de tiempo.',
+        },
+        {
+          titulo: 'Restaurar cuestionario',
+          ruta: '/restaurar',
+          icono: 'fa-solid fa-eraser fa-6x text-center color-icon color-icon',
+          info: 'Guarda las respuestas de un cuestionario para reutilizar la encuesta, permitiendo evaluar a un nuevo público objetivo.',
         },
         {
           titulo: 'Obligatoriedad',
           ruta: '/obligatorio',
-          icono:
-            'fa-solid fa-circle-exclamation fa-8x p-4 text-center color-icon',
-          info: 'Creación de cuestionario, con sus respectivas fechas de inicio y cierre.',
+          icono: 'fa-solid fa-circle-exclamation fa-6x text-center color-icon',
+          info: 'Indica que la encuesta es obligatoria, asegurando deben completarla antes de continuar o acceder a otras secciones.',
         },
         {
           titulo: 'Configurar acceso',
           ruta: '/configuracion',
-          icono: 'fa-solid fa-sliders fa-8x p-4 text-center color-icon',
-          info: 'Permite establecer qué usuarios pueden responder al cuestionario.',
+          icono: 'fa-solid fa-sliders fa-6x text-center color-icon',
+          info: 'Define qué usuarios pueden acceder y responder al cuestionario, asegurando que solo el público objetivo participe.',
         },
         {
           titulo: 'Previsualizar cuestionario',
           ruta: '/previsualizacion',
-          icono: 'fa-solid fa-eye fa-8x p-4 text-center color-icon',
-          info: 'Permite visualizar los cuestionarios ya creados.',
+          icono: 'fa-solid fa-eye fa-6x text-center color-icon',
+          info: 'Muestra los cuestionarios creados, permitiendo revisar detalles como título, fechas y configuración antes de su aplicación.',
         },
         {
           titulo: 'Inicio',
           ruta: '/inicio',
-          icono: 'fa-solid fa-house fa-8x p-4 text-center color-icon',
-          info: 'Volver al menú anterior.',
+          icono: 'fa-solid fa-house fa-6x text-center color-icon',
+          info: 'Permite regresar al menú anterior para facilitar la navegación entre opciones, asegurando una experiencia fluida.',
         },
       ];
     } else {
@@ -51,26 +56,32 @@ export class CuestionariosComponent {
           titulo: 'Crear cuestionario',
           ruta: '/cuestionario',
           icono:
-            'fa-solid fa-circle-plus fa-8x p-4 text-center color-icon color-icon',
-          info: 'Creación de cuestionario, con sus respectivas fechas de inicio y cierre.',
+            'fa-solid fa-circle-plus fa-6x text-center color-icon color-icon',
+          info: 'La creación de un cuestionario incluye título, instrucciones, fechas de inicio y cierre y restricciones de tiempo.',
+        },
+        {
+          titulo: 'Restaurar cuestionario',
+          ruta: '/restaurar',
+          icono: 'fa-solid fa-eraser fa-6x text-center color-icon color-icon',
+          info: 'Guarda las respuestas de un cuestionario para reutilizar la encuesta, permitiendo evaluar a un nuevo público objetivo.',
         },
         {
           titulo: 'Configurar acceso',
           ruta: '/configuracion',
-          icono: 'fa-solid fa-sliders fa-8x p-4 text-center color-icon',
-          info: 'Permite establecer qué usuarios pueden responder al cuestionario.',
+          icono: 'fa-solid fa-sliders fa-6x text-center color-icon',
+          info: 'Define qué usuarios pueden acceder y responder al cuestionario, asegurando que solo el público objetivo participe.',
         },
         {
           titulo: 'Previsualizar cuestionario',
           ruta: '/previsualizacion',
-          icono: 'fa-solid fa-eye fa-8x p-4 text-center color-icon',
-          info: 'Permite visualizar los cuestionarios ya creados.',
+          icono: 'fa-solid fa-eye fa-6x text-center color-icon',
+          info: 'Muestra los cuestionarios creados, permitiendo revisar detalles como título, fechas y configuración antes de su aplicación.',
         },
         {
           titulo: 'Inicio',
           ruta: '/inicio',
-          icono: 'fa-solid fa-house fa-8x p-4 text-center color-icon',
-          info: 'Volver al menú anterior.',
+          icono: 'fa-solid fa-house fa-6x text-center color-icon',
+          info: 'Permite regresar al menú anterior para facilitar la navegación entre opciones, asegurando una experiencia fluida.',
         },
       ];
     }
